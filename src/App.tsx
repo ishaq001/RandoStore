@@ -4,11 +4,13 @@ import HomePage from "./components/HomePage"
 import ItemList from "./components/ItemList"
 import Checkout from "./components/Checkout"
 import AddItem from "./components/AddItem"
+import NavBar from "./components/Navbar"
 
 function App() {
   return (
     <Router>
       <div className='App'>
+        <NavBar />
         <div className='container mt-4'>
           <Routes>
             <Route
