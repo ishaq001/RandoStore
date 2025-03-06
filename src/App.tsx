@@ -5,6 +5,7 @@ import ItemList from "./components/ItemList"
 import Checkout from "./components/Checkout"
 import AddItem from "./components/AddItem"
 import NavBar from "./components/Navbar"
+import NotFound from "./components/NotFound"
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
               path='/add-item'
               element={<AddItem />}
             />
+            <Route
+              path='*'
+              element={<NotFound />}
+            />{" "}
+            {/* Handles unknown routes */}
           </Routes>
         </div>
       </div>
