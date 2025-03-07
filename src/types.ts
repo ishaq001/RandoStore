@@ -12,4 +12,5 @@ export type TItemLIst = {
 export type TCheckout = {
   cart: TItem[]
   removeFromCart: (itemIndex: number) => void
+  clearCart: () => void
 }

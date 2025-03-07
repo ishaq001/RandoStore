@@ -8,6 +8,7 @@ import NavBar from "./components/Navbar"
 import NotFound from "./components/NotFound"
 import { useEffect, useState } from "react"
 import { TItem } from "./types"
+import { ToastContainer } from "react-toastify"
 
 function App() {
   const [cart, setCart] = useState<TItem[]>(() => {
@@ -33,9 +34,17 @@ function App() {
     })
   }
 
+  const clearCart = () => {
+    setCart([])
+    localStorage.removeItem("cart") // Clear from storage
+  }
   return (
     <Router>
       <div className='App'>
+        <ToastContainer
+          position='top-right'
+          autoClose={2000}
+        />
         <NavBar cartItemCount={cart.length} />
         <div className='container mt-4'>
           <Routes>
@@ -53,6 +62,7 @@ function App() {
                 <Checkout
                   cart={cart}
                   removeFromCart={removeFromCart}
+                  clearCart={clearCart}
                 />
               }
             />

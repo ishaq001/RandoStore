@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
 import { TItem, TItemLIst } from "../types"
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 import { getImageUrl } from "../utils"
 
 function ItemList({ addToCart }: TItemLIst) {
@@ -56,10 +56,6 @@ function ItemList({ addToCart }: TItemLIst) {
 
   return (
     <div>
-      <ToastContainer
-        position='top-right'
-        autoClose={2000}
-      />
       <h2 className='mb-4'>Available Items</h2>
       {items.length === 0 ? (
         <Alert variant='info'>No items available in the store.</Alert>
@@ -76,7 +72,7 @@ function ItemList({ addToCart }: TItemLIst) {
                 <Card.Img
                   alt='image'
                   variant='top'
-                  src={getImageUrl(item.img)}
+                  src={getImageUrl(item.img || "")}
                   style={{ height: "200px", objectFit: "cover" }}
                 />
                 <Card.Body className='d-flex flex-column'>
