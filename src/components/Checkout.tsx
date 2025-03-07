@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Table, Button, Alert, Card } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import { TCheckout } from "../types"
+import { getImageUrl } from "../utils"
 
 function Checkout({ cart, removeFromCart }: TCheckout) {
   const calculateTotal = () => {
@@ -46,9 +47,9 @@ function Checkout({ cart, removeFromCart }: TCheckout) {
             <tr key={`${item.id}-${Math.random()}`}>
               <td style={{ width: "100px" }}>
                 <img
-                  src={item.img}
+                  src={getImageUrl(item.img)}
                   alt={item.name}
-                  style={{ width: "75px", height: "75px", objectFit: "cover" }}
+                  style={{ width: "50px", height: "50px", objectFit: "cover" }}
                   // onError={(e) => {
                   //   e.target.src =
                   //     "https://via.placeholder.com/75?text=No+Image"

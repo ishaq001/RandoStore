@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
 import { TItem, TItemLIst } from "../types"
 import { toast, ToastContainer } from "react-toastify"
+import { getImageUrl } from "../utils"
 
 function ItemList({ addToCart }: TItemLIst) {
   const [items, setItems] = useState<TItem[]>([])
@@ -75,7 +76,7 @@ function ItemList({ addToCart }: TItemLIst) {
                 <Card.Img
                   alt='image'
                   variant='top'
-                  src={item.img}
+                  src={getImageUrl(item.img)}
                   style={{ height: "200px", objectFit: "cover" }}
                 />
                 <Card.Body className='d-flex flex-column'>
