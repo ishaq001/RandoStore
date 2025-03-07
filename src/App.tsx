@@ -1,14 +1,16 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import HomePage from "./components/HomePage"
-import ItemList from "./components/ItemList"
-import Checkout from "./components/Checkout"
-import AddItem from "./components/AddItem"
-import NavBar from "./components/Navbar"
-import NotFound from "./components/NotFound"
 import { useEffect, useState } from "react"
-import { TItem } from "./types"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
+
+import HomePage from "./pages/HomePage"
+import ItemList from "./pages/ItemList"
+import Checkout from "./pages/Checkout"
+import AddItem from "./pages/AddItem"
+import NavBar from "./components/Navbar"
+import NotFound from "./pages/NotFound"
+import { TItem } from "./types"
+
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   const [cart, setCart] = useState<TItem[]>(() => {
