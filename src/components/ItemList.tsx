@@ -1,22 +1,9 @@
 import { useEffect, useState } from "react"
-import {
-  Alert,
-  Button,
-  Card,
-  Col,
-  Row,
-  Spinner,
-  ToastContainer,
-} from "react-bootstrap"
+import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
+import { TItem, TItemLIst } from "../types"
+import { toast, ToastContainer } from "react-toastify"
 
-type TItem = {
-  name: string
-  id: number
-  img: string
-  price: string
-}
-
-function ItemList() {
+function ItemList({ addToCart }: TItemLIst) {
   const [items, setItems] = useState<TItem[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string>("")
@@ -25,16 +12,14 @@ function ItemList() {
     fetchItems()
   }, [])
 
-  console.log({ items })
-
   const fetchItems = async () => {
     try {
       setLoading(true)
       const response = await fetch("/api/items")
-
       if (!response.ok) {
         throw new Error("Failed to fetch items")
       }
+
       const data = await response.json()
       setItems(data)
       setError("")
@@ -46,7 +31,10 @@ function ItemList() {
     }
   }
 
-  const handleAddToCart = (item) => {}
+  const handleAddToCart = (item: TItem) => {
+    toast(`${item.name} added to cart.`)
+    addToCart(item)
+  }
 
   if (loading) {
     return (
@@ -67,7 +55,10 @@ function ItemList() {
 
   return (
     <div>
-      <ToastContainer position='top-end' />
+      <ToastContainer
+        position='top-right'
+        autoClose={2000}
+      />
       <h2 className='mb-4'>Available Items</h2>
       {items.length === 0 ? (
         <Alert variant='info'>No items available in the store.</Alert>

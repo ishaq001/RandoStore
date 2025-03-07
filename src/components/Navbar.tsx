@@ -1,10 +1,8 @@
-import { useState } from "react"
 import { Badge, Container, Nav, Navbar } from "react-bootstrap"
 import { FaShoppingCart } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-function NavBar() {
-  const [cartItemCount, setCartItemCount] = useState<number>(1)
+function NavBar({ cartItemCount }: { cartItemCount: number }) {
   return (
     <Navbar
       bg='dark'
