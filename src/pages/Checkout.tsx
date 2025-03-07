@@ -1,9 +1,10 @@
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Table, Button, Alert, Card, Modal } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
-import { TCheckout } from "../types"
+
 import { getImageUrl } from "../utils"
-import { useState } from "react"
+import { TCheckout } from "../types"
 
 function Checkout({ cart, removeFromCart, clearCart }: TCheckout) {
   const [showModal, setShowModal] = useState(false)
@@ -65,10 +66,6 @@ function Checkout({ cart, removeFromCart, clearCart }: TCheckout) {
                   src={getImageUrl(item.img)}
                   alt={item.name}
                   style={{ width: "50px", height: "50px", objectFit: "cover" }}
-                  // onError={(e) => {
-                  //   e.target.src =
-                  //     "https://via.placeholder.com/75?text=No+Image"
-                  // }}
                 />
               </td>
               <td>{item.name}</td>

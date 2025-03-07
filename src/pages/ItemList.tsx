@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
 import { TItem, TItemLIst } from "../types"
 import { toast } from "react-toastify"
+
 import { getImageUrl } from "../utils"
 
 function ItemList({ addToCart }: TItemLIst) {
