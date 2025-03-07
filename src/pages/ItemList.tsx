@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
+import { Alert, Button, Card, Col, Form, Row, Spinner } from "react-bootstrap"
 import { TItem, TItemLIst } from "../types"
 import { toast } from "react-toastify"
 
@@ -9,6 +9,9 @@ function ItemList({ addToCart }: TItemLIst) {
   const [items, setItems] = useState<TItem[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string>("")
+
+  const [searchTerm, setSearchTerm] = useState<string>("")
+  const [sortOrder, setSortOrder] = useState<string>("")
 
   useEffect(() => {
     fetchItems()
@@ -38,6 +41,18 @@ function ItemList({ addToCart }: TItemLIst) {
     addToCart(item)
   }
 
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  const sortedItems = [...filteredItems].sort((a, b) => {
+    if (sortOrder === "price-asc")
+      return parseFloat(a.price) - parseFloat(b.price)
+    if (sortOrder === "price-desc")
+      return parseFloat(b.price) - parseFloat(a.price)
+    return 0
+  })
+
   if (loading) {
     return (
       <div className='text-center my-5'>
@@ -58,6 +73,28 @@ function ItemList({ addToCart }: TItemLIst) {
   return (
     <div>
       <h2 className='mb-4'>Available Items</h2>
+
+      {/* Search and Sorting Controls */}
+      <Row className='mb-3'>
+        <Col md={6}>
+          <Form.Control
+            type='text'
+            placeholder='Search items...'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Col>
+        <Col md={6}>
+          <Form.Select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value=''>Sort by</option>
+            <option value='price-asc'>Price: Low to High</option>
+            <option value='price-desc'>Price: High to Low</option>
+          </Form.Select>
+        </Col>
+      </Row>
       {items.length === 0 ? (
         <Alert variant='info'>No items available in the store.</Alert>
       ) : (
@@ -67,7 +104,7 @@ function ItemList({ addToCart }: TItemLIst) {
           lg={3}
           className='g-4'
         >
-          {items.map((item) => (
+          {sortedItems.map((item) => (
             <Col key={item.id}>
               <Card className='h-100 shadow-sm'>
                 <Card.Img
