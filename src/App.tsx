@@ -15,7 +15,7 @@ function App() {
     return savedCart ? JSON.parse(savedCart) : []
   })
 
-  // ✅ Save cart to localStorage only when cart changes
+  // Save cart to localStorage only when cart changes
   useEffect(() => {
     if (cart.length > 0) {
       // Prevent saving empty cart on first render
@@ -24,6 +24,14 @@ function App() {
   }, [cart])
 
   const addToCart = (item: TItem) => setCart([...cart, item])
+
+  const removeFromCart = (itemIndex: number) => {
+    setCart((prevCart) => {
+      const updatedCart = [...prevCart]
+      updatedCart.splice(itemIndex, 1) // Remove 1 item at the correct index
+      return updatedCart
+    })
+  }
 
   return (
     <Router>
@@ -41,7 +49,12 @@ function App() {
             />
             <Route
               path='/checkout'
-              element={<Checkout />}
+              element={
+                <Checkout
+                  cart={cart}
+                  removeFromCart={removeFromCart}
+                />
+              }
             />
             <Route
               path='/add-item'

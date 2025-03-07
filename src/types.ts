@@ -8,3 +8,8 @@ export type TItem = {
 export type TItemLIst = {
   addToCart: (item: TItem) => void
 }
+
+export type TCheckout = {
+  cart: TItem[]
+  removeFromCart: (itemIndex: number) => void
+}
