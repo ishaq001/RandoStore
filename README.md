@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# Shopping Cart App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple shopping cart application built with React, TypeScript, and Vite. The app allows users to browse items, add new items, manage their cart, and proceed to checkout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Homepage**: Provides navigation links to different sections.
+- **Item List Page**: Displays available items with search and sorting functionality.
+- **Add Item Page**: Allows users to add new items using a form with validation (React Hook Form).
+- **Checkout Page**: Shows cart items, allows removal, and confirms checkout via a modal.
+- **Notifications**: Uses React Toastify for user feedback.
+- **State Management**: Utilizes React hooks and local storage for cart persistence.
+- **Optimized Build**: Developed with Vite for fast performance.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** with TypeScript
+- **Vite** for development and bundling
+- **React Bootstrap** for styling and components
+- **React Hook Form** for form validation
+- **React Toastify** for notifications
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+
+```
+root
+│── src
+│   ├── components/        # Reusable components
+│   ├── pages/             # Application pages
+│   ├── App.tsx            # Application entry point with routes
+│   ├── main.tsx           # Main file rendering React app
+│── public/                # Static assets
+│── index.html             # HTML template
+│── package.json           # Dependencies and scripts
+│── tsconfig.json          # TypeScript configuration
+│── vite.config.ts         # Vite configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation and Setup
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x"
-import reactDom from "eslint-plugin-react-dom"
+1. Clone the repository:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   git clone https://github.com/ishaq001/RandoStore.git
+
+2. Navigate to the project folder:
+
+   cd RandoStore
+
+3. Install dependencies:
+
+   npm install
+
+4. Start the development server:
+
+   npm start
+
+5. Open the app in your browser at:
+
+   http://localhost:5173
+
+## Usage
+
+- Visit the homepage and navigate to different pages.
+- Browse and sort items in the **Items List**.
+- Add new items using the **Add Item** page.
+- Add items to the cart and manage them in the **Checkout** page.
+- Complete the checkout process using the modal confirmation.
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
