@@ -12,6 +12,8 @@ A simple shopping cart application built with React, TypeScript, and Vite. The a
 - **State Management**: Utilizes React hooks and local storage for cart persistence.
 - **Optimized Build**: Developed with Vite for fast performance.
 
+- **Search & Sort List**: Allow users to search and sort items.
+
 ## Technologies Used
 
 - **React** with TypeScript

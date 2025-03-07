@@ -20,7 +20,7 @@ const AddItem = () => {
       const response = await fetch("/api/items", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data), // Send JSON with image URL
+        body: JSON.stringify(data),
       })
 
       const result = await response.json()
