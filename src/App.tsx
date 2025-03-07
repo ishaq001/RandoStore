@@ -38,14 +38,14 @@ function App() {
 
   const clearCart = () => {
     setCart([])
-    localStorage.removeItem("cart") // Clear from storage
+    localStorage.removeItem("cart")
   }
   return (
     <Router>
       <div className='App'>
         <ToastContainer
-          position='top-right'
-          autoClose={2000}
+          position='bottom-left'
+          autoClose={1000}
         />
         <NavBar cartItemCount={cart.length} />
         <div className='container mt-4'>

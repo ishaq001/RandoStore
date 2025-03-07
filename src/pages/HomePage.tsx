@@ -25,7 +25,7 @@ function HomePage() {
                 your cart.
               </Card.Text>
               <Button
-                as={Link as unknown as React.ElementType}
+                as={Link}
                 to='/items'
                 variant='primary'
                 className='mt-auto'
