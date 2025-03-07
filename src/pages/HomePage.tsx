@@ -24,14 +24,17 @@ function HomePage() {
                 Check out our collection of random items that you can add to
                 your cart.
               </Card.Text>
-              <Button
-                as={Link}
+              <Link
                 to='/items'
-                variant='primary'
-                className='mt-auto'
+                style={{ textDecoration: "none" }}
               >
-                Browse Items
-              </Button>
+                <Button
+                  className='mt-auto'
+                  variant='primary'
+                >
+                  Browse Items
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
@@ -46,14 +49,17 @@ function HomePage() {
               <Card.Text>
                 View the items in your cart and proceed to checkout.
               </Card.Text>
-              <Button
-                as={Link}
+              <Link
                 to='/checkout'
-                variant='success'
-                className='mt-auto'
+                style={{ textDecoration: "none" }}
               >
-                Go to Cart
-              </Button>
+                <Button
+                  className='mt-auto'
+                  variant='success'
+                >
+                  Go to Cart
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
@@ -66,16 +72,19 @@ function HomePage() {
             <Card.Body className='d-flex flex-column'>
               <Card.Title>Add New Item</Card.Title>
               <Card.Text>
-                Have something random to sell? Add it to our store!
+                Have something random to sell? Dont worry. Add it to our store!
               </Card.Text>
-              <Button
-                as={Link}
+              <Link
                 to='/add-item'
-                variant='info'
-                className='mt-auto'
+                style={{ textDecoration: "none" }}
               >
-                Add Item
-              </Button>
+                <Button
+                  className='mt-auto'
+                  variant='info'
+                >
+                  Add Item
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>

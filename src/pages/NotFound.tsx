@@ -7,13 +7,12 @@ function NotFound() {
       <h1 className='display-4 text-danger'>404</h1>
       <h2 className='mb-4'>Page Not Found</h2>
       <p className='lead'>Oops! The page you're looking for doesn't exist.</p>
-      <Button
-        as={Link}
+      <Link
         to='/'
-        variant='primary'
+        style={{ textDecoration: "none" }}
       >
-        Go Home
-      </Button>
+        <Button variant='primary'>Go Home</Button>
+      </Link>
     </Container>
   )
 }
